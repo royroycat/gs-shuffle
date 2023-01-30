@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+    flask-api:
+        build: ./flask-app
+        ports: 
+            - 8080:5000
