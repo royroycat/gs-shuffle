@@ -3,20 +3,82 @@
   <head>
     <meta charset=utf-8>
     <title>Shuffle</title>
+    <link rel="stylesheet" href="../static/style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/primevue@^3/resources/themes/saga-orange/theme.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/primevue@^3/resources/primevue.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/primeflex@^3/primeflex.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/primeicons/primeicons.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.css"/>
   </head>
   <body>
-      <div id="app">{{ message }}</div>
+      <div id="app">
+          <div id="title">SHUFFLE</div>
+          <div class="category">
+            <p-button class="cat p-button-rounded" v-for="cat in category" label="Submit" @click="selectCategory(cat)">{{cat}}<i class="fas fa-random"></i></p-button>
+          </div>
+          <transition-group name="shuffle" tag="div" class="candidate">
+            <div class="entry" v-for="entry in candidate" :key="entry">
+              <span>{{entry}}</span>
+            </div>
+          </transition-group>
+      </div>
   </body>
-  <script type="module">
-    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
-
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/primevue@^3/core/core.min.js"></script>
+  <script>
+    const { createApp } = Vue
     createApp({
       data() {
         return {
-          message: 'Hello Vue!'
+          currentCategory:"",
+          category:[],
+          candidate:null
         }
+      },
+      created() {
+        {
+          this.getCatgory()
+        }
+      },
+      methods: { 
+        async getCadidate(candidate) {
+          let response = await axios.get('category/'+candidate);
+          //console.log(response.data.candidate);
+          this.candidate = response.data.candidate;
+          this.shuffle()
+        },
+        async getCatgory() {
+          let response = await axios.get('category');
+          //console.log(response.data.category);
+          this.category = response.data.category;
+          if (this.candidate==null) {
+            this.currentCategory=this.category[0];
+            this.getCadidate(this.category[0])
+          }
+        },
+        shuffle() {        
+          for(let i = this.candidate.length - 1; i > 0; i--) {
+            let randomIndex = Math.floor(Math.random() * i);
+            let temp = this.candidate[i];
+            this.candidate[i]= this.candidate[randomIndex];
+            this.candidate[randomIndex] = temp;
+          }
+        },
+        selectCategory(cat) {
+          if (cat == this.currentCategory) {
+            this.shuffle();
+          } else {
+            this.currentCategory=cat;
+            this.candidate = [];
+            this.getCadidate(cat)
+          }
+        }
+      },
+      components: {
+          'p-button': primevue.button
       }
-    }).mount('#app')
+    }).use(primevue.config.default).mount('#app')
   </script>
 </html>
 

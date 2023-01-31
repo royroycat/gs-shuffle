@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700");
+
+body {
+    background-color: whitesmoke;
+    margin:0px;
+}
+
+.category {
+    color: white;
+    text-align: center;
+    display: block;
+    padding-top: 30px;
+}
+
+button.cat {
+    margin: 10px;
+    color: grey;
+}
+
+#title {
+    font-family: Roboto Slab, sans-serif;
+    text-align: center;
+    padding-top: 30px;
+    margin-bottom: 0 !important;
+    font-weight: 300;
+    font-size: 3rem;
+    color: grey;
+}
+
+.fas {
+    padding-left: 5px;
+}
+
+.candidate {
+    margin-top: 40px;
+    padding: 40px;
+    position: absolute;
+    background-color: Moccasin;
+    width: 100%;
+}
+
+.entry {
+    color: grey;
+    width: 80px;
+    height: 85px;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    background-color: white;
+    position: relative;
+    box-shadow: 0 2px 3px rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 10%);
+}
+
+.entry span {
+    width: 100%;
+    position: absolute;
+    top: 38%;
+    text-align: center;
+    font-family: "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
+}
+
+.shuffle-move {
+    transition: transform 0.5s;
+}
