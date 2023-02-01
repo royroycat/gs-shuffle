@@ -38,6 +38,11 @@ button.cat {
     background-color: Moccasin;
     width: 100%;
 }
+@media (max-width:960px){
+    .candidate {
+        padding: 20px;
+    }
+}
 
 .entry {
     color: grey;
