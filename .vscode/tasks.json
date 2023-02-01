@@ -16,6 +16,10 @@
             {
               "containerPath": "/app",
               "localPath": "${workspaceFolder}/flask-app"
+            },
+            {
+              "containerPath": "/root/.config/gspread",
+              "localPath": "${workspaceFolder}/gspread"
             }
           ],
           "ports": [

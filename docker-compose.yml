@@ -5,3 +5,5 @@ services:
         build: ./flask-app
         ports: 
             - 8080:5000
+        volumes:
+            - ./gspread:/root/.config/gspread/
