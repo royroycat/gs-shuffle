@@ -20,8 +20,7 @@
 | Apple  | Piano | Mouse |
 | Orange  | Violin | Keyboard |
 | Melon  |  | Headphone |
-
-| Lemon  |  |
+| Lemon  | 
 
 ## REST API
 >http://example.com/category
