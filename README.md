@@ -1,5 +1,8 @@
 # gs-shuffle
 
+## Screenshot
+<img src="https://user-images.githubusercontent.com/5573927/216109413-8fe347a2-572b-4754-98c9-cc82537e3bb8.gif" width="400">
+
 ## Usage
 - Please create a google spreadsheet called `gs-shuffle` and remain Sheet1 be `Sheet1`
 
@@ -16,7 +19,8 @@
 |  ----  | ----  | ---- |
 | Apple  | Piano | Mouse |
 | Orange  | Violin | Keyboard |
-| Melon  |  | Headphone
+| Melon  |  | Headphone |
+
 | Lemon  |  |
 
 ## REST API
