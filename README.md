@@ -5,7 +5,7 @@
 
 - Then using google cloud app engine to create a service account to access this spreadsheet
 
-- Copy/Replace the `sevice_account.json` to `flask-app` folder
+- Copy/Replace the `sevice_account.json` to `gspread` folder
 
 - `docker-compose build` and `docker-compose up`
 
